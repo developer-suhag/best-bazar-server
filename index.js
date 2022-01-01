@@ -15,9 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Chil Bazar server is running");
+  res.send("Best Bazar server is running");
 });
 
 app.listen(port, () => {
-  console.log(`Chil Bazar app listening at ${port}`);
+  console.log(`Best Bazar app listening at ${port}`);
 });
