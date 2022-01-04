@@ -40,7 +40,7 @@ async function run() {
 
     // get products api and pagination
     app.get("/allProducts", async (req, res) => {
-      const cursor = orderCollection.find({});
+      const cursor = productCollection.find({});
       const page = req.query.page;
       const size = parseInt(req.query.size);
       let products;
