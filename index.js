@@ -71,14 +71,9 @@ async function run() {
     // });
 
     // get all orders
-    // app.get("/allOrders", verifyToken, async (req, res) => {
-    //   const requester = req.decodedEmail;
-    //   if (requester) {
+    // app.get("/allOrders", async (req, res) => {
     //     const orders = await orderCollection.find({}).toArray();
     //     res.send(orders);
-    //   } else {
-    //     res.status(403).json({ message: "You do not have access." });
-    //   }
     // });
 
     // get a single order
@@ -90,18 +85,13 @@ async function run() {
     // });
 
     // get order by user emails
-    // app.get("/orders", verifyToken, async (req, res) => {
-    //   const email = req.query.email;
-    //   const requester = req.decodedEmail;
-    //   if (requester) {
-    //     const query = { userEmail: email };
-    //     const cursor = orderCollection.find(query);
-    //     const orders = await cursor.toArray();
-    //     res.json(orders);
-    //   } else {
-    //     res.status(403).json({ message: "You do not have access." });
-    //   }
-    // });
+    app.get("/orders", async (req, res) => {
+      const email = req.query.email;
+      const query = { userEmail: email };
+      const cursor = orderCollection.find(query);
+      const orders = await cursor.toArray();
+      res.json(orders);
+    });
 
     // post a product api
     // app.post("/cars", async (req, res) => {
