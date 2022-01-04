@@ -27,8 +27,8 @@ async function run() {
     await client.connect();
     const database = client.db("bestBazar");
     const productCollection = database.collection("products");
+    const orderCollection = database.collection("orders");
     // const reviewCollection = database.collection("reviews");
-    // const orderCollection = database.collection("orders");
     // const userCollection = database.collection("users");
     // const messageCollection = database.collection("messages");
 
@@ -111,11 +111,11 @@ async function run() {
     // });
 
     // post order api
-    // app.post("/orders", async (req, res) => {
-    //   const order = req.body;
-    //   const result = await orderCollection.insertOne(order);
-    //   res.json(result);
-    // });
+    app.post("/orders", async (req, res) => {
+      const order = req.body;
+      const result = await orderCollection.insertOne(order);
+      res.json(result);
+    });
 
     // update order for payment
     // app.put("/orders/:id", async (req, res) => {
