@@ -38,23 +38,23 @@ async function run() {
       res.send(products);
     });
 
-    // get cars api and pagination
-    // app.get("/cars", async (req, res) => {
-    //   const cursor = carCollection.find({});
-    //   const page = req.query.page;
-    //   const size = parseInt(req.query.size);
-    //   let cars;
-    //   const count = await cursor.count();
-    //   if (page) {
-    //     cars = await cursor
-    //       .skip(page * size)
-    //       .limit(size)
-    //       .toArray();
-    //   } else {
-    //     cars = await cursor.toArray();
-    //   }
-    //   res.send({ count, cars });
-    // });
+    // get products api and pagination
+    app.get("/allProducts", async (req, res) => {
+      const cursor = orderCollection.find({});
+      const page = req.query.page;
+      const size = parseInt(req.query.size);
+      let products;
+      const count = await cursor.count();
+      if (page) {
+        products = await cursor
+          .skip(page * size)
+          .limit(size)
+          .toArray();
+      } else {
+        products = await cursor.toArray();
+      }
+      res.send({ count, products });
+    });
 
     // get a singel product api
     app.get("/products/:id", async (req, res) => {
