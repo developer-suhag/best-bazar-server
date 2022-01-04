@@ -20,8 +20,10 @@
   - Product Details
   - Cart,
   - Checkout
+  - My Account
   - Authentication,
   - redux work
+  - Pagination
 
 ### [Md Omor Faruk Alif](https://github.com/Alif-001)
 
